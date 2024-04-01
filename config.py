@@ -9,5 +9,3 @@ root.iconphoto(True, icon)
 
 root.geometry('250x300+600+300')
 root.resizable(False, False)
-
-### This code for ZP version 1.1
