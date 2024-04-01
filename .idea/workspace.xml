@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1de9796f-6a54-437a-b5f0-9ffeb85a71f4" name="Changes" comment="Changes in config" />
+    <list default="true" id="1de9796f-6a54-437a-b5f0-9ffeb85a71f4" name="Changes" comment="First Commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711971162791</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1711971596623</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711971596623</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,9 +255,10 @@
   <component name="VcsManagerConfiguration">
     <option name="CODE_SMELLS_PROFILE" value="Default" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="First Commit" />
     <MESSAGE value="Update README.md" />
+    <MESSAGE value="Revert &quot;Changes in config&quot;&#10;&#10;This reverts commit 41b3b4556c495f0486f47395cb14f19dcd679f6a." />
     <MESSAGE value="Changes in config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes in config" />
+    <MESSAGE value="First Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
   </component>
 </project>
