@@ -1,35 +1,20 @@
-import openpyxl as ox
 import re
+
+import openpyxl as ox
 from openpyxl.styles import Font, Border, Side, NamedStyle, PatternFill
 
+from DataBase import get_ante, get_color
 
-def identify(path, file_name1):
+
+def identify(path, path_success1):
     book = ox.load_workbook(f"{path}")
     sheet = book.active
-    file_name = file_name1
+    file_name = path_success1
     znach(sheet, book, file_name)
 
 
 def znach(sheet, book, file_name):
-    stavka = {
-        'Огиенко Александр': 200,
-        'Тишков Артем': 250,
-        'Бехруз Рахматуллаев': 250,
-        'Рахматуллаев Бехруз': 80,
-        'Андреев Николай': 250,
-        'Филинева Анастасия': 170,
-        'Земскова Татьяна': 130,
-        'Ивантеева Ангелина': 170,
-        'Мамадиева Ангелина': 250,
-        'Фомин Никита': 250,
-        'Щерчкова Дарья': 170,
-        'Ефремова Татьяна': 250,
-        'Еремин Дмитрий': 250,
-        'Ликучев Данила': 250,
-        'Скворцов Данила': 250,
-        'Данилов Андрей': 250
-    }
-
+    ante = get_ante()
     col = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"]
     time = []
     time11 = []
@@ -38,10 +23,8 @@ def znach(sheet, book, file_name):
 
     for row in range(2, sheet.max_row + 1):
         name = sheet[row][0].value
-        # company = sheet[row][1].value
-        # title = sheet[row][2].value
-        if name in stavka:
-            sheet[f"W{row}"] = stavka[name]
+        if name in ante:
+            sheet[f"W{row}"] = ante[name]
         for column in col:
             q = sheet[f"{column}{row}"].value
             time.append(q)
@@ -70,7 +53,6 @@ def znach(sheet, book, file_name):
             time_itog.append(round(eval(t[i]), 2))
             j += round(eval(t[i]), 2)
         sheet[f"U{row}"] = j
-        # print(name, company, time_itog, j)
     cells_names(sheet, book, file_name)
 
 
@@ -101,25 +83,7 @@ def formulas(sheet, book, file_name):
 
 
 def styles(sheet, book, file_name):
-    colors = {
-        'Огиенко Александр': 'de9495',
-        'Тишков Артем': '7f7ac0',
-        'Бехруз Рахматуллаев': 'bc5e34',
-        'Рахматуллаев Бехруз': 'bc5e34',
-        'Андреев Николай': 'e45f5d',
-        'Филинева Анастасия': '65f0ff',
-        'Земскова Татьяна': 'b3a94e',
-        'Ивантеева Ангелина': '49d58a',
-        'Мамадиева Ангелина': '979797',
-        'Фомин Никита': 'ffffff',
-        'Щерчкова Дарья': 'aeff7c',
-        'Ефремова Татьяна': 'a898cf',
-        'Еремин Дмитрий': 'a3ff8b',
-        'Ликучев Данила': '9eb53c',
-        'Скворцов Данила': 'fff26a',
-        'Данилов Андрей': 'ff8eb0',
-        'Богатов Артем': '00ff8d'
-    }
+    colors = get_color()
 
     colums = ['V', 'W', 'X', 'Y', 'Z', 'AA']
     borders_sheet = NamedStyle(name='border')
@@ -132,9 +96,6 @@ def styles(sheet, book, file_name):
         sheet[1][column].font = Font(bold=True)
 
     for row in range(1, sheet.max_row + 1):
-        name = sheet[row][0].value
-        stroka = name
-        # print(stroka)
         for column in range(20, 27):
             sheet[row][column].style = borders_sheet
 

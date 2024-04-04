@@ -1,11 +1,14 @@
-import tkinter
-from tkinter import *
+import tkinter as tk
 
-root = Tk()
+root = tk.Tk()
 
-root.title('Конвертер')
-icon = tkinter.PhotoImage(file='Resources/exel_icon.png')
-root.iconphoto(True, icon)
+root.title('ЗП конвертер')
 
-root.geometry('250x300+600+300')
+root.iconbitmap(default='Resources/exel-icon.ico')
+
+root.geometry('400x460')
+x = (root.winfo_screenwidth() - root.winfo_reqwidth()) / 2.5
+y = (root.winfo_screenheight() - root.winfo_reqheight()) / 3
+root.wm_geometry("+%d+%d" % (x, y))
+
 root.resizable(False, False)
